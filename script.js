@@ -21,12 +21,12 @@ document.querySelector('.check').addEventListener('click', function () {
   } else if (guess === secretNumber) {
     displayMessage('Correct number!');
 
-    document.querySelector('.number').textContent = secretNumber;
-
+    // Highlight winning number
+    querySelector('.number').textContent = secretNumber;
+    querySelector('.number').style.width = '30rem';
     document.querySelector('body').style.backgroundColor = '#60b347';
 
-    document.querySelector('.number').style.width = '30rem';
-
+    // Set high score
     if (score > highscore) highscore = score;
     document.querySelector('.highscore').textContent = highscore;
 
@@ -35,6 +35,7 @@ document.querySelector('.check').addEventListener('click', function () {
     if (score > 1) {
       displayMessage(guess > secretNumber ? 'Too high!' : 'Too low!');
 
+      // Update score
       score--;
       document.querySelector('.score').textContent = score;
     } else {
